@@ -9,8 +9,8 @@
 </head>
 <body>
     <header>
-        <img src="{{ url_for('static', filename='logo.png') }}"width="300" height="300">
-        <h1>Morse-Code Protected Calculator</h1>
+        <img src="{{ url_for('static', filename='logo.png') }}">
+
         <nav>
             <a href="{{ url_for('home') }}">Home</a>
             <a href="{{ url_for('register') }}">Register</a>
@@ -19,13 +19,14 @@
     </header>
 
     {% with messages = get_flashed_messages() %}
-      {% if messages %}
-        <ul class="flashes">
-          {% for message in messages %}
-            <li>{{ message }}</li>
-          {% endfor %}
-        </ul>
-      {% endif %}
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            {{ message }}
+        </div>
+        {% endfor %}
+    {% endif %}
     {% endwith %}
 
     <main>

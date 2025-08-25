@@ -31,7 +31,7 @@
 		input[type="button"] {
 			width: 100%;
 			padding: 20px 40px;
-			background-color: green;
+			background-color: deepskyblue;
 			color: white;
 			font-size: 24px;
 			font-weight: bold;
@@ -52,7 +52,8 @@
 <!-- create table -->
 
 <body>
-<h1>Hello! Welcome! You have successfully Logged In!</h1>
+<h1 align=center>Hello! {{ username }} You have successfully Logged In!</h1>
+<p align=center>This is just a normal calculator!</p>
 	<table id="calcu">
 		<tr>
 			<td colspan="3"><input type="text" id="result"></td>
@@ -143,6 +144,26 @@
 			document.getElementById("result").value = ""
 		}
 	</script>
+<h2 align=center>Countdown to 2026</h2>
+<h2 id="countdown" align=center></h2>
+
+<script>
+var countDownDate = new Date("Jan 1, 2026 00:00:00").getTime();
+var x = setInterval(function() {
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = "HAPPY 2026!";
+  }
+}, 1000);
+</script>
 </body>
 </html>
 {% endblock %}

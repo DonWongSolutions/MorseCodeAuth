@@ -32,7 +32,8 @@ nav{
     font-size: large;
 }
 img{
-    float: right;
+    float: none;
+    max-width: 500px;
 }
 .loginbutton{
     border-radius: 60px;
@@ -56,6 +57,17 @@ input[class=morsecodeinput] {
     border-color: transparent;
     color: white;
 }
+input[class='formsinput'] {
+    width: 20%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    background-color: transparent;
+    border-color: darkblue;
+    border-style: solid;
+    color: white;
+    border-radius: 10px;
+}
 button[class=morseinputbutton]{
     border-radius: 15px;
     background-color: red;
@@ -67,4 +79,58 @@ button[class=morseinputbutton]{
     display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+.alert {
+    padding: 20px;
+    margin-top:20px;
+    margin-bottom:20px;
+    background-color: green; /* Red */
+    color: white;
+    margin-bottom: 15px;
+    border-radius: 25px;
+    width:fit-content;
+}
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.closebtn:hover {
+    color: black;
+}
+@media only screen and (max-width: 768px) {
+img{
+    float: none;
+    max-width: 100%;
+}
+    input[class=morsecodeinput] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        font-size: 50px;
+        background-color: transparent;
+        border-color: darkblue;
+        border-style: solid;
+        color: white;
+}
+    input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    background-color: transparent;
+    border-color: darkblue;
+    border-style: solid;
+    color: white;
+    border-radius: 10px;
+}
 }

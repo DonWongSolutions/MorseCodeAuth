@@ -7,42 +7,70 @@
 
     <form method="post" action="{{ url_for('login') }}">
         <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br>
+        <input type="text" id="username" name="username" class='formsinput' required><br>
+
         <label for="password">Password (Morse code):</label>
         <input type="text" id="password" name="password" class="morsecodeinput" required>
-        <button type="button" id="morse-button" class="morseinputbutton">Tap for Morse</button>
+
+        <div class="large-screen">
+            <button type="button" id="morse-button" class="morseinputbutton">Tap for Morse</button>
+        </div>
+
+        <div class="small-screen">
+            <button type="button" id="dot-button" class="morseinputbutton">Dot</button>
+            <button type="button" id="dash-button" class="morseinputbutton">Dash</button>
+        </div>
+
         <p>Use '.' for dot and '-' for dash, e.g., '....' for H.</p>
         <button type="submit" class="loginbutton">Login</button>
     </form>
+
     <p>Don't have an account? <a href="{{ url_for('register') }}">Register here</a>.</p>
-<script>
+
+    <style>
+      /* CSS to hide/show based on screen size */
+      .large-screen { display: none; }
+      .small-screen { display: block; }
+
+      @media (min-width: 768px) {
+        /* Change breakpoint as needed */
+        .large-screen { display: block; }
+        .small-screen { display: none; }
+      }
+    </style>
+
+    <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const morseButton = document.getElementById('morse-button');
         const passwordField = document.getElementById('password');
 
-        let audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
         let oscillator;
         let pressTime;
 
-        morseButton.addEventListener('mousedown', function() {
-            pressTime = new Date().getTime();
-
+        const startOscillator = () => {
             oscillator = audioContext.createOscillator();
             oscillator.type = 'sine';
-            oscillator.frequency.setValueAtTime(600, audioContext.currentTime); //CHANGE FREQ HERE!!!!!
-
+            oscillator.frequency.setValueAtTime(600, audioContext.currentTime);
             oscillator.connect(audioContext.destination);
             oscillator.start();
+        };
+
+        const stopOscillator = () => {
+            oscillator.stop();
+            oscillator.disconnect();
+        };
+
+        const morseButton = document.getElementById('morse-button');
+        morseButton.addEventListener('mousedown', function() {
+            pressTime = new Date().getTime();
+            startOscillator();
         });
 
         morseButton.addEventListener('mouseup', function() {
             const releaseTime = new Date().getTime();
             const duration = releaseTime - pressTime;
-
-            oscillator.stop();
-            oscillator.disconnect();
-
-            const dotDashThreshold = 300; //CAN CHANGE THRESHOLD HERE!!!!!!
+            stopOscillator();
+            const dotDashThreshold = 300;
 
             if (duration < dotDashThreshold) {
                 passwordField.value += '.';
@@ -51,6 +79,17 @@
             }
 
             pressTime = undefined;
+        });
+
+        const dotButton = document.getElementById('dot-button');
+        const dashButton = document.getElementById('dash-button');
+
+        dotButton.addEventListener('click', function() {
+            passwordField.value += '.';
+        });
+
+        dashButton.addEventListener('click', function() {
+            passwordField.value += '-';
         });
     });
     </script>
