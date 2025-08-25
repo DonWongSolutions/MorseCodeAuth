@@ -2,7 +2,7 @@
 ## About this Project
 - This Project is created for Authly (a Hack Club YSWS) by Don Wong.
 - This Flask App Serves to Demonstrate the Custom Morse-Code Authentication System.
-<br> **More About Me** <br> This is my first time creating anything related to Flask or Authentication, <br>so if the idea is rubbish or it looks bad, please be easy on me...
+<br> <br> **More About Me** <br> This is my first time creating anything related to Flask or Authentication, <br>so if the idea is rubbish or it looks bad, please be easy on me...
 ## Project Details
 | App Route | Usage                                           |
 |-----------|-------------------------------------------------|
