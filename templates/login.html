@@ -9,10 +9,10 @@
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required><br>
         <label for="password">Password (Morse code):</label>
-        <input type="text" id="password" name="password" required>
-        <button type="button" id="morse-button">Tap for Morse</button>
+        <input type="text" id="password" name="password" class="morsecodeinput" required>
+        <button type="button" id="morse-button" class="morseinputbutton">Tap for Morse</button>
         <p>Use '.' for dot and '-' for dash, e.g., '....' for H.</p>
-        <button type="submit">Login</button>
+        <button type="submit" class="loginbutton">Login</button>
     </form>
     <p>Don't have an account? <a href="{{ url_for('register') }}">Register here</a>.</p>
 <script>

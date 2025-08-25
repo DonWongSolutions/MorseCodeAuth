@@ -8,10 +8,11 @@
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required><br>
         <label for="password">Password (Morse code):</label>
-        <input type="text" id="password" name="password" required oninput="validateMorseCode(this)">
-        <button type="button" id="morse-button">Tap for Morse</button>
+        <input type="text" id="password" name="password" class="morsecodeinput" required oninput="validateMorseCode(this)">
+        <button type="button" id="morse-button" class="morseinputbutton">Tap for Morse</button>
+        <p>Use '.' for dot and '-' for dash, e.g., '....' for H.</p>
         <p id="error-message" style="color:red"></p>
-        <button type="submit">Register</button>
+        <button type="submit" class="loginbutton">Register</button>
     </form>
     <script>
     function validateMorseCode(input) {

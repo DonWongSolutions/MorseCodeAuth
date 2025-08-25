@@ -34,3 +34,37 @@ nav{
 img{
     float: right;
 }
+.loginbutton{
+    border-radius: 60px;
+    background-color: #f16442;
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+}
+input[class=morsecodeinput] {
+    width: 20%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-size: 50px;
+    background-color: transparent;
+    border-color: transparent;
+    color: white;
+}
+button[class=morseinputbutton]{
+    border-radius: 15px;
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+}

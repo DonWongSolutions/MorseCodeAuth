@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash, redirect, url_for
+from flask import Flask, render_template, request, flash, redirect, url_for, send_from_directory
 from werkzeug.security import generate_password_hash, check_password_hash
 import json
 import os
@@ -68,6 +68,11 @@ def login():
             return redirect(url_for('login'))
 
     return render_template('login.html')
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'favicon.old.ico', mimetype='image/vnd.microsoft.icon')
 
 if __name__ == '__main__':
     if not os.path.exists(USERS_FILE):
