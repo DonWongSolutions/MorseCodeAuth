@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}Register | MCPC{% endblock %}
+
+{% block content %}
+    <h2>Register</h2>
+    <form method="post" action="{{ url_for('register') }}">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+        <label for="password">Password (Morse code):</label>
+        <input type="text" id="password" name="password" required oninput="validateMorseCode(this)">
+        <button type="button" id="morse-button">Tap for Morse</button>
+        <p id="error-message" style="color:red"></p>
+        <button type="submit">Register</button>
+    </form>
+    <script>
+    function validateMorseCode(input) {
+        const regex = /^[ .\-]*$/;
+        const isValid = regex.test(input.value);
+        const errorMessage = document.getElementById("error-message");
+
+        if (!isValid) {
+            errorMessage.textContent = "Password must contain only dots (.) and dashes (-).";
+            return false;
+        } else {
+            errorMessage.textContent = "";
+            return true;
+        }
+    }
+    </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const morseButton = document.getElementById('morse-button');
+        const passwordField = document.getElementById('password');
+
+        let audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        let oscillator;
+        let pressTime;
+
+        morseButton.addEventListener('mousedown', function() {
+            pressTime = new Date().getTime();
+
+            oscillator = audioContext.createOscillator();
+            oscillator.type = 'sine';
+            oscillator.frequency.setValueAtTime(600, audioContext.currentTime); //CHANGE FREQ HERE!!!!!
+
+            oscillator.connect(audioContext.destination);
+            oscillator.start();
+        });
+
+        morseButton.addEventListener('mouseup', function() {
+            const releaseTime = new Date().getTime();
+            const duration = releaseTime - pressTime;
+
+            oscillator.stop();
+            oscillator.disconnect();
+
+            const dotDashThreshold = 300; //CAN CHANGE THRESHOLD HERE!!!!!!
+
+            if (duration < dotDashThreshold) {
+                passwordField.value += '.';
+            } else {
+                passwordField.value += '-';
+            }
+
+            pressTime = undefined;
+        });
+    });
+    </script>
+    <p>Already have an account? <a href="{{ url_for('login') }}">Login here</a>.</p>
+{% endblock %}

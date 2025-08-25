@@ -1,0 +1,36 @@
+html{
+    background-image: linear-gradient(to right, #000000, #f16442);
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+p{
+    color: rgb(255,255,255);
+}
+h1{
+    color: rgb(255,255,255);
+}
+h2{
+    color: rgb(255,255,255);
+}
+a{
+    color: #f16442;
+}
+form{
+    color: rgb(255,255,255);
+}
+li{
+    color: red;
+}
+strong{
+    color: red;
+}
+nav{
+    font-size: x-large;
+}
+#morsecodedir{
+    font-size: large;
+}
+img{
+    float: right;
+}
