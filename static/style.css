@@ -115,6 +115,7 @@ button[class=morseinputbutton]{
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
+    width: 100%;
 }
 .alert {
     padding: 20px;
@@ -192,9 +193,12 @@ form {
 }
 
 input[type="text"], .morseinputbutton, .loginbutton {
-    width: 80%;
+    width: 100%;
     max-width: 500px;
     margin-bottom: 10px;
+}
+del{
+    color: white;
 }
 
 @media only screen and (max-width: 768px) {
@@ -215,7 +219,7 @@ img{
         padding: 12px 20px;
         margin: 8px 0;
         box-sizing: border-box;
-        font-size: 50px;
+        font-size: 40px;
         background-color: transparent;
         border-color: darkblue;
         border-style: solid;

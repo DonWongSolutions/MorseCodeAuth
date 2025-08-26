@@ -17,12 +17,14 @@
 </head>
 <body>
     <header>
-        <img src="{{ url_for('static', filename='logo.png') }}">
-
+        <a href="/">
+            <img src="{{ url_for('static', filename='logo.png') }}">
+        </a>
         <nav>
             <a href="{{ url_for('home') }}">Home</a>
             <a href="{{ url_for('register') }}">Register</a>
             <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('story') }}">Something About Me</a>
         </nav>
     </header>
 

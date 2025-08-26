@@ -74,6 +74,10 @@ def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
                                'favicon.old.ico', mimetype='image/vnd.microsoft.icon')
 
+@app.route('/story')
+def story():
+    return render_template('story.html')
+
 if __name__ == '__main__':
     if not os.path.exists(USERS_FILE):
         with open(USERS_FILE, 'w') as file:
