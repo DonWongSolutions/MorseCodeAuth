@@ -3,29 +3,25 @@
 {% block title %}Login | MCPC{% endblock %}
 
 {% block content %}
+<div class="login-container" align=center>
     <h2>Login</h2>
-
     <form method="post" action="{{ url_for('login') }}">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" class='formsinput' required><br>
-
         <label for="password">Password (Morse code):</label>
         <input type="text" id="password" name="password" class="morsecodeinput" required>
-
         <div class="large-screen">
             <button type="button" id="morse-button" class="morseinputbutton">Tap for Morse</button>
         </div>
-
         <div class="small-screen">
             <button type="button" id="dot-button" class="morseinputbutton">Dot</button>
             <button type="button" id="dash-button" class="morseinputbutton">Dash</button>
         </div>
-
         <p>Use '.' for dot and '-' for dash, e.g., '....' for H.</p>
         <button type="submit" class="loginbutton">Login</button>
     </form>
-
     <p>Don't have an account? <a href="{{ url_for('register') }}">Register here</a>.</p>
+</div>
 
     <style>
       /* CSS to hide/show based on screen size */
