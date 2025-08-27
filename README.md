@@ -1,6 +1,6 @@
 # Morse-Code Protected Calculator
 > [!IMPORTANT]  
-> Project Demo is Available Here: https://morse-code-auth.vercel.app/
+> Project Demo is Available Here: https://wkydon.pythonanywhere.com/
 ## About this Project
 - This Project is created for Authly (a Hack Club YSWS) by Don Wong.
 - This Flask App Serves to Demonstrate the Custom Morse-Code Authentication System.
