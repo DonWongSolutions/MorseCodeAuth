@@ -3,7 +3,7 @@
 
 > [!TIP]
 > This is the Tip Block!
-> <br> (I personally prefer to call it "Success Block")
+> <br> (I like to call it "Success Block")
 
 > [!IMPORTANT]  
 > This is the Important Block!
